@@ -11,11 +11,11 @@
                 "Work_type": "QF XGS PON Install",
                 "Work_status": "Cancelled"
             },
-            "smartnid status": {
-                "smartnid": "enabled"
-            },
-            "adapt_staus": "online",
-            "result": "No Work order"
+            // "smartnid status": {
+            //     "smartnid": "enabled"
+            // },
+            // "adapt_staus": "online",
+            // "result": "No Work order"
         },
         
     "719 South Pine Street 1301 Cabot Arkansas United States 72023":
@@ -30,11 +30,11 @@
             "Work_type": "QF Fiber Install - For Installations",
             "Work_status": "Cancelled"
         },
-        "smartnid status": {
-            "smartnid": "enabled"
-        },
-        "adapt_status": "offline",
-        "result": "Work order created",
+        // "smartnid status": {
+        //     "smartnid": "enabled"
+        // },
+        // "adapt_status": "offline",
+        // "result": "Work order created",
         },
             
         
@@ -50,11 +50,11 @@
             "Work_type": "QF Fiber Install - For Installations",
             "Work_status": "Cancelled"
         },
-        "smartnid status": {
-            "smartnid": "eligible"
-        },
-        "UDIF": "Y",
-        "result": "No BSU"
+        // "smartnid status": {
+        //     "smartnid": "eligible"
+        // },
+        // "UDIF": "Y",
+        // "result": "No BSU"
         },
         
          
@@ -70,14 +70,14 @@
             "Work_type": "QF Fiber Install - For Installations",
             "Work_status": "Cancelled"
         },
-        "smartnid status": {
-            "smartnid": "eligible"
-        },
-        "UDIF": "N",
-        "UDIF_result": "Installation Interval table (SF)",
-        "BSU condition":"Is BSU need?",
-        "BSU_condition_result": "Y",
-        "result":"Buried site check",
+        // "smartnid status": {
+        //     "smartnid": "eligible"
+        // },
+        // "UDIF": "N",
+        // "UDIF_result": "Installation Interval table (SF)",
+        // "BSU condition":"Is BSU need?",
+        // "BSU_condition_result": "Y",
+        // "result":"Buried site check",
         },
         
      "735 South Pine Street 1301 Cabot Arkansas United States 72023":
@@ -92,14 +92,14 @@
             "Work_type": "QF Fiber Install - For Installations",
             "Work_status": "Cancelled"
         },
-        "smartnid status": {
-            "smartnid": "eligible"
-        },
-        "UDIF": "N",
-        "UDIF_result": "Installation Interval table (SF)",
-        "BSU condition":"Is BSU need?",
-        "BSU_condition_result": "N",
-        "result":"Installation WO alone been created",
+        // "smartnid status": {
+        //     "smartnid": "eligible"
+        // },
+        // "UDIF": "N",
+        // "UDIF_result": "Installation Interval table (SF)",
+        // "BSU condition":"Is BSU need?",
+        // "BSU_condition_result": "N",
+        // "result":"Installation WO alone been created",
         },
         
 }
