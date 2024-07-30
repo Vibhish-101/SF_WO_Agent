@@ -1,6 +1,6 @@
 # Salesforce Work Order Agent Crew
 
-Welcome to the Salesforce Work Order Agent. This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework . Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+Welcome to the Salesforce Work Order Agent. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
 ## Installation
 
