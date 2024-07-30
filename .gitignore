@@ -1,5 +1,5 @@
 .env
 __pycache__/
 myenv
-SF_Stub
-gemini_config
+SF_Stub.json
+gemini_config.json
