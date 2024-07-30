@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "sf_wo_agent"
+version = "0.1.0"
+description = "SF_WO_Agent using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = "^0.41.1" }
+
+[tool.poetry.scripts]
+sf_wo_agent = "sf_wo_agent.main:run"
+train = "sf_wo_agent.main:train"
+replay = "sf_wo_agent.main:replay"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
