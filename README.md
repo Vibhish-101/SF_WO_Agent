@@ -1,6 +1,6 @@
 # Salesforce Work Order Agent Crew
 
-Welcome to the Salesforce Work Order Agent. This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+Welcome to the Salesforce Work Order Agent. This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework . Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
 ## Installation
 
@@ -23,7 +23,7 @@ poetry install
 ```
 ### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+**Add your `JSON_CREDS` into the `.env` file**
 
 - Modify `src/sf_wo_agent/config/agents.yaml` to define your agents
 - Modify `src/sf_wo_agent/config/tasks.yaml` to define your tasks
