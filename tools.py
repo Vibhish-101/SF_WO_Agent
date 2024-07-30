@@ -1,7 +1,7 @@
 import json
 
 
-with open('STUB_DATA.json', 'r') as file:
+with open('SF_Stub.json', 'r') as file:
         data = json.load(file)
 
 
