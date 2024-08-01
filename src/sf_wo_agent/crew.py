@@ -10,8 +10,8 @@ from crewai.project import CrewBase, agent, crew, task
 @CrewBase
 class SfWoAgentCrew():
 	"""SfWoAgent crew"""
-	agents_config = 'config/agents.yaml'
-	tasks_config = 'config/tasks.yaml'
+	agents_config = 'config/agents.py'
+	tasks_config = 'config/tasks.py'
 
 	@agent
 	def researcher(self) -> Agent:
