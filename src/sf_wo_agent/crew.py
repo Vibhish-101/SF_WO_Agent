@@ -1,32 +1,95 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
-# Uncomment the following line to use an example of a custom tool
-# from sf_wo_agent.tools.custom_tool import MyCustomTool
+from sf_wo_agent.tools.custom_tool import ApiTools
 
-# Check our tools documentations for more information on how to use them
-# from crewai_tools import SerperDevTool
+
 
 @CrewBase
 class SfWoAgentCrew():
 	"""SfWoAgent crew"""
-	agents_config = 'config/agents.py'
-	tasks_config = 'config/tasks.py'
+	agents_config = 'config/agents.yaml'
+	tasks_config = 'config/tasks.yaml'
 
 	@agent
-	def researcher(self) -> Agent:
+	def address_manager(self) -> Agent:
 		return Agent(
-			config=self.agents_config['researcher'],
+			config=self.agents_config['address_manager'],
 			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
 			verbose=True
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def flow_agent(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['flow_agent'],
 			verbose=True
 		)
+
+	@agent
+	def salesforce_account_manager(self) -> Agent:
+		return Agent(
+			config=self.agents_config['salesforce_account_manager'],
+			tools =[ApiTools.Account_Status_Checker],
+			verbose=True
+		)  
+
+	@agent
+	def service_appointment_manager(self) -> Agent:
+		return Agent(
+			config=self.agents_config['service_appointment_manager'],
+			tools =[ApiTools.Service_Appt_Checker],
+			verbose=True
+		)
+
+	@agent
+	def work_order_manager(self) -> Agent:
+		return Agent(
+			config=self.agents_config['work_order_manager'],
+            tools =[ApiTools.Work_Order_Checker],
+			verbose=True
+		)
+
+	@agent
+	def decision_matrix_evaluator(self) -> Agent:
+		return Agent(
+			config=self.agents_config['decision_matrix_evaluator'],
+            tools =[ApiTools.SmartNID_Status_Checker],
+			verbose=True
+		)
+
+	@agent
+	def fiber_installation_manager(self) -> Agent:
+		return Agent(
+			config=self.agents_config['fiber_installation_manager'],
+            tools =[ApiTools.UDIF_Checker],
+			verbose=True
+		)
+
+	@agent
+	def buried_site_checker(self) -> Agent:
+		return Agent(
+			config=self.agents_config['buried_site_checker'],
+            tools =[ApiTools.BSU_Checker],
+			verbose=True
+		)
+
+	@agent
+	def installation_interval_manager(self) -> Agent:
+		return Agent(
+			config=self.agents_config['installation_interval_manager'],
+            # tools =[],
+			verbose=True
+		)
+
+	@agent
+	def adapt_status_manager(self) -> Agent:
+		return Agent(
+			config=self.agents_config['adapt_status_manager'],
+            tools =[ApiTools.Adapt_Status_Checker],
+			verbose=True
+		)
+
 
 	@task
 	def research_task(self) -> Task:
