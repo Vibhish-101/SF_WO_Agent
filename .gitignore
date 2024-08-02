@@ -1,8 +1,6 @@
 .env
 __pycache__/
 myenv/*
-SF_WO_Agent/src/sf_wo_agent/config/SF_Stub.json
-SF_WO_Agent/src/sf_wo_agent/config/gemini_config.json
-SF_WO_Agent/src/sf_wo_agent/config/SF_Stub.json
-SF_WO_Agent/src/sf_wo_agent/config/gemini_config.json
-SF_WO_Agent/src/sf_wo_agent/config/model_setup.py
+src/sf_wo_agent/config/SF_Stub.json
+src/sf_wo_agent/config/gemini_config.json
+src/sf_wo_agent/config/model_setup.py
