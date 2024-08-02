@@ -2,6 +2,7 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
 from sf_wo_agent.tools.custom_tool import ApiTools
+from sf_wo_agent.config.model_setup import setup_environment, get_vertex_ai_llm
 
 
 
