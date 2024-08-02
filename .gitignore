@@ -1,8 +1,8 @@
 .env
 __pycache__/
 myenv/
-C:\Users\AD33119\OneDrive - Lumen\Documents\GitHub\SF_WO_Agent\src\sf_wo_agent\config\SF_Stub.json
-C:\Users\AD33119\OneDrive - Lumen\Documents\GitHub\SF_WO_Agent\src\sf_wo_agent\config\gemini_config.json
-C:\Users\AD33119\OneDrive - Lumen\Documents\GitHub\SF_WO_Agent\src\sf_wo_agent\config\SF_Stub.json
-C:\Users\AD33119\OneDrive - Lumen\Documents\GitHub\SF_WO_Agent\src/sf_wo_agent\config\gemini_config.json
-C:\Users\AD33119\OneDrive - Lumen\Documents\GitHub\SF_WO_Agent\src\sf_wo_agent\config\model_setup.py
+SF_WO_Agent\src\sf_wo_agent\config\SF_Stub.json
+SF_WO_Agent\src\sf_wo_agent\config\gemini_config.json
+SF_WO_Agent\src\sf_wo_agent\config\SF_Stub.json
+SF_WO_Agent\src/sf_wo_agent\config\gemini_config.json
+SF_WO_Agent\src\sf_wo_agent\config\model_setup.py
