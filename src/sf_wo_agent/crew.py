@@ -11,85 +11,66 @@ class SfWoAgentCrew():
 	"""SfWoAgent crew"""
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
+ 
+## AGENTS
 
 	@agent
-	def address_manager(self) -> Agent:
+	def order_lookup(self) -> Agent:
 		return Agent(
-			config=self.agents_config['address_manager'],
+			config=self.agents_config['order_lookup'],
 			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
 			verbose=True
 		)
 
 	@agent
-	def flow_agent(self) -> Agent:
+	def order_validation(self) -> Agent:
 		return Agent(
-			config=self.agents_config['flow_agent'],
+			config=self.agents_config['order_validation'],
 			verbose=True
 		)
 
 	@agent
-	def salesforce_account_manager(self) -> Agent:
+	def service_provision(self) -> Agent:
 		return Agent(
-			config=self.agents_config['salesforce_account_manager'],
+			config=self.agents_config['service_provision'],
 			tools =[ApiTools.Account_Status_Checker],
 			verbose=True
 		)  
 
 	@agent
-	def service_appointment_manager(self) -> Agent:
+	def inventory_management(self) -> Agent:
 		return Agent(
-			config=self.agents_config['service_appointment_manager'],
+			config=self.agents_config['inventory_management'],
 			tools =[ApiTools.Service_Appt_Checker],
 			verbose=True
 		)
 
 	@agent
-	def work_order_manager(self) -> Agent:
+	def installation_scheduling(self) -> Agent:
 		return Agent(
-			config=self.agents_config['work_order_manager'],
+			config=self.agents_config['installation_scheduling'],
             tools =[ApiTools.Work_Order_Checker],
 			verbose=True
 		)
 
 	@agent
-	def decision_matrix_evaluator(self) -> Agent:
+	def technician_dispatch(self) -> Agent:
 		return Agent(
-			config=self.agents_config['decision_matrix_evaluator'],
+			config=self.agents_config['technician_dispatch'],
             tools =[ApiTools.SmartNID_Status_Checker],
 			verbose=True
 		)
 
 	@agent
-	def fiber_installation_manager(self) -> Agent:
+	def order_status_update(self) -> Agent:
 		return Agent(
-			config=self.agents_config['fiber_installation_manager'],
+			config=self.agents_config['order_status_update'],
             tools =[ApiTools.UDIF_Checker],
 			verbose=True
 		)
 
-	@agent
-	def buried_site_checker(self) -> Agent:
-		return Agent(
-			config=self.agents_config['buried_site_checker'],
-            tools =[ApiTools.BSU_Checker],
-			verbose=True
-		)
-
-	@agent
-	def installation_interval_manager(self) -> Agent:
-		return Agent(
-			config=self.agents_config['installation_interval_manager'],
-            # tools =[],
-			verbose=True
-		)
-
-	@agent
-	def adapt_status_manager(self) -> Agent:
-		return Agent(
-			config=self.agents_config['adapt_status_manager'],
-            tools =[ApiTools.Adapt_Status_Checker],
-			verbose=True
-		)
+	
+## TASKS
 
 
 	@task

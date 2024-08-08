@@ -1,88 +1,63 @@
-address_manager:
+order_lookup:
   role: >
-    Address Manager
+    Order Lookup Agent
   goal: >
-    Manage address-related inputs and data
+    Retrieve and update order details efficiently.
   backstory: >
-    Expert in handling and verifying address information.
+    A diligent agent tasked with managing order details and statuses.
 
 
-flow_agent:
+order_validation:
   role: >
-    Salesforce Order Manager
+    Order Validation Agent
   goal: >
-    create and manage SF-orders, inputs and data
+    Ensure all order details are accurate and up-to-date.
   backstory: >
-    Skilled in managing order data with salesforce
+    An agent focused on validating and verifying order information.
 
 
-salesforce_account_manager:
+service_provision:
   role: >
-    Salesforce Account Manager
+    Service Provisioning Agent
   goal: >
-    Create and update SF-Accounts
+    Provision and activate services for orders.
   backstory: >
-    Proficient in handling account information in Salesforce.
+    A technical agent specializing in provisioning and service management.
 
 
-service_appointment_manager:
+inventory_management:
   role: >
-    Service Appointment Manager
+    Inventory Management Agent
   goal: >
-    Schedule and manage service appointments
+    Manage and allocate inventory resource.
   backstory: >
-    Adept at organizing and scheduling appointments efficiently.
+    An organized agent responsible for inventory control and allocation.
 
 
-work_order_manager:
+installation_scheduling:
   role: >
-    Work Order Manager
+    Installation Scheduling Agent
   goal: >
-    Create work orders based on inputs and criteria
+    Schedule and coordinate installation appointments.
   backstory: >
-    Experienced in managing work orders and ensuring accuracy.
+    An efficient agent tasked with managing installation schedules.
 
 
-decision_matrix_evaluator:
+technician_dispatch:
   role: >
-    Decision Matrix Evaluator
+    Technician Dispatch Agent 
   goal: >
-    Evaluate the decision matrix for eligibility and status
+    Dispatch technicians and confirm dispatch details.
   backstory: >
-    Expert in analyzing decision matrices and determining outcomes.
+    A meticulous agent ensuring technicians are dispatched correctly.
 
 
-fiber_installation_manager:
+order_status_update:
   role: >
-    Fiber Installation Manager
+    Order Status Update Agent
   goal: >
-    Handle fiber drop installation checks via QFAST API
+    Update order statuses and notify systems.
   backstory: >
-    Skilled in managing fiber installations and API interactions.
+    An agent dedicated to keeping order statuses current and accurate.
 
 
-buried_site_checker:
-  role: >
-    Buried Site Checker
-  goal: >
-    Perform buried site checks when required
-  backstory: >
-    Experienced in conducting site checks for buried utilities.
-
-
-installation_interval_manager:
-  role: >
-    Installation Interval Manager
-  goal: >
-    Manage installation intervals based on specific conditions
-  backstory: >
-    Proficient in scheduling and managing installation timelines.
-
-
-adapt_status_manager:
-  role: >
-    ADAPT Status Manager
-  goal: >
-    Handle ADAPT status checks and manage related work orders
-  backstory: >
-    Expert in monitoring and managing ADAPT statuses.
