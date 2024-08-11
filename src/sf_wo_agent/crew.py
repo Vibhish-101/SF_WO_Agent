@@ -1,8 +1,14 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
-from sf_wo_agent.tools.custom_tool import ApiTools
+from sf_wo_agent.tools.custom_tools_1 import fetch_orch_items
 from sf_wo_agent.config.model_setup import setup_environment, get_vertex_ai_llm
+
+# Load the Environment
+setup_environment()
+
+# Initialise the Model
+llm = get_vertex_ai_llm('llm')
 
 
 
@@ -19,14 +25,16 @@ class SfWoAgentCrew():
 		return Agent(
 			config=self.agents_config['order_lookup'],
 			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
-			verbose=True
+			verbose=True,
+            allow_delegation=True
 		)
 
 	@agent
 	def order_validation(self) -> Agent:
 		return Agent(
 			config=self.agents_config['order_validation'],
-			verbose=True
+			verbose=True,
+            allow_delegation=True
 		)
 
 	@agent
@@ -34,7 +42,8 @@ class SfWoAgentCrew():
 		return Agent(
 			config=self.agents_config['service_provision'],
 			tools =[ApiTools.Account_Status_Checker],
-			verbose=True
+			verbose=True,
+			allow_delegation=True
 		)  
 
 	@agent
@@ -42,7 +51,8 @@ class SfWoAgentCrew():
 		return Agent(
 			config=self.agents_config['inventory_management'],
 			tools =[ApiTools.Service_Appt_Checker],
-			verbose=True
+			verbose=True,
+			allow_delegation=True
 		)
 
 	@agent
@@ -50,7 +60,8 @@ class SfWoAgentCrew():
 		return Agent(
 			config=self.agents_config['installation_scheduling'],
             tools =[ApiTools.Work_Order_Checker],
-			verbose=True
+			verbose=True,
+			allow_delegation=True
 		)
 
 	@agent
@@ -58,7 +69,8 @@ class SfWoAgentCrew():
 		return Agent(
 			config=self.agents_config['technician_dispatch'],
             tools =[ApiTools.SmartNID_Status_Checker],
-			verbose=True
+			verbose=True,
+			allow_delegation=True
 		)
 
 	@agent
@@ -96,5 +108,6 @@ class SfWoAgentCrew():
 			tasks=self.tasks, # Automatically created by the @task decorator
 			process=Process.sequential,
 			verbose=2,
-			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+			process=Process.hierarchical, 
+            manager_llm = llm
 		)

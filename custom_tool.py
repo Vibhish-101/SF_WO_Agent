@@ -2,7 +2,7 @@ from crewai_tools import tool
 import json
 
 
-with open('C:\Users\AD33119\OneDrive - Lumen\Documents\GitHub\SF_WO_Agent\src\sf_wo_agent\config\SF_Stub.json', 'r') as file:
+with open(r'C:\Users\AD33119\OneDrive - Lumen\Documents\GitHub\SF_WO_Agent\src\sf_wo_agent\config\SF_Stub.json') as file:
         data = json.load(file)
 
 
