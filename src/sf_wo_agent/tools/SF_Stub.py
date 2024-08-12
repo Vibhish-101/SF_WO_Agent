@@ -148,5 +148,5 @@ async def websocket_endpoint(websocket: WebSocket):
         logging.error(f"WebSocket error: {str(e)}")
         
 
-if __name__ == '__SF_Stub__':
-    uvicorn.run(app, host = "0.0.0.0", port = 8000)
+# if __name__ == '__SF_Stub__':
+#     uvicorn.run(app, host = "0.0.0.0", port = 8000)
