@@ -12,7 +12,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs'
+        'customer_order': 'A00706991'
     }
     SfWoAgentCrew().crew().kickoff(inputs=inputs)
 
@@ -22,7 +22,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs"
+        "customer_order": "A00706991"
     }
     try:
         SfWoAgentCrew().crew().train(n_iterations=int(sys.argv[1]), inputs=inputs)
