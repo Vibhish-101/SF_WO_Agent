@@ -34,7 +34,7 @@
             "smartnid": "enabled"
         },
         "adapt_status": "offline",
-        "result": "Work order created",
+        "result": "Work order created"
         },
             
         
@@ -77,7 +77,7 @@
         "UDIF_result": "Installation Interval table (SF)",
         "BSU condition":"Is BSU need?",
         "BSU_condition_result": "Y",
-        "result":"Buried site check",
+        "result":"Buried site check"
         },
         
      "735 South Pine Street 1301 Cabot Arkansas United States 72023":
@@ -99,7 +99,7 @@
         "UDIF_result": "Installation Interval table (SF)",
         "BSU condition":"Is BSU need?",
         "BSU_condition_result": "N",
-        "result":"Installation WO alone been created",
-        },
+        "result":"Installation WO alone been created"
+        }
         
 }
