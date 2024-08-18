@@ -1,8 +1,12 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
-from sf_wo_agent.tools.custom_tools_1 import fetch_orch_items
-from sf_wo_agent.config.model_setup import setup_environment, get_vertex_ai_llm
+from tools.custom_tools_1 import fetch_orch_items
+from config.model_setup import setup_environment, get_vertex_ai_llm
+import logging
+
+logging.basicConfig(level=logging.INFO)
+
 
 # Load the Environment
 setup_environment()
@@ -13,8 +17,8 @@ llm = get_vertex_ai_llm('llm')
 @CrewBase
 class SfWoAgentCrew:
     """SfWoAgent crew"""
-    agents_config = 'config/agents.yaml'
-    tasks_config = 'config/tasks.yaml'
+    agents_config = r'C:\Users\AD33119\OneDrive - Lumen\Documents\GitHub\SF_WO_Agent\src\sf_wo_agent\config\agents.yaml'
+    tasks_config = r'C:\Users\AD33119\OneDrive - Lumen\Documents\GitHub\SF_WO_Agent\src\sf_wo_agent\config\tasks.yaml'
 
     ################################################################ AGENTS ####################################################################################
 
@@ -137,143 +141,204 @@ class SfWoAgentCrew:
     @task
     def account_update_speed_and_charge(self) -> Task:
         return Task(
-            config=self.tasks_config['account_update_speed_and_charge']
+            config=self.tasks_config['account_update_speed_and_charge'],
+            
         )
 
     @task
     def create_account_contact_updates(self) -> Task:
         return Task(
-            config=self.tasks_config['create_account_contact_updates']
+            config=self.tasks_config['create_account_contact_updates'],
+            
         )
 
     @task
     def update_wo_and_sa(self) -> Task:
         return Task(
-            config=self.tasks_config['update_wo_and_sa']
+            config=self.tasks_config['update_wo_and_sa'],
+            
+
         )
 
     @task
     def update_wo_facilities(self) -> Task:
         return Task(
-            config=self.tasks_config['update_wo_facilities']
+            config=self.tasks_config['update_wo_facilities'],
+            
+
         )
 
     @task
     def get_and_activate_dtn(self) -> Task:
         return Task(
-            config=self.tasks_config['get_and_activate_dtn']
+            config=self.tasks_config['get_and_activate_dtn'],
+            
+
         )
 
     @task
     def get_health_certificate(self) -> Task:
         return Task(
             config=self.tasks_config['get_health_certificate'],
-            agent=self.reporting_analyst()
+            
         )
 
     @task
     def acs_on_reset_gateway(self) -> Task:
         return Task(
-            config=self.tasks_config['acs_on_reset_gateway']
+            config=self.tasks_config['acs_on_reset_gateway'],
+            
         )
 
     @task
     def acs_smartnid_reset_gateway(self) -> Task:
         return Task(
-            config=self.tasks_config['acs_smartnid_reset_gateway']
+            config=self.tasks_config['acs_smartnid_reset_gateway'],
+            
         )
 
     @task
     def assia_on_update_speed(self) -> Task:
         return Task(
-            config=self.tasks_config['assia_on_update_speed']
+            config=self.tasks_config['assia_on_update_speed'],
+            
         )
 
     @task
     def assia_speed_update(self) -> Task:
         return Task(
-            config=self.tasks_config['assia_speed_update']
+            config=self.tasks_config['assia_speed_update'],
+            
+            
         )
 
     @task
     def create_zuora_subscription(self) -> Task:
         return Task(
-            config=self.tasks_config['create_zuora_subscription']
+            config=self.tasks_config['create_zuora_subscription'],
+            
         )
 
     @task
     def fiber_provisioning_modified(self) -> Task:
         return Task(
-            config=self.tasks_config['fiber_provisioning_modified']
+            config=self.tasks_config['fiber_provisioning_modified'],
+            
         )
 
     @task
     def hsi_fiber_assetize(self) -> Task:
         return Task(
-            config=self.tasks_config['hsi_fiber_assetize']
+            config=self.tasks_config['hsi_fiber_assetize'],
+            
         )
 
     @task
     def improv_on_remove_dtn_from_walled(self) -> Task:
         return Task(
-            config=self.tasks_config['improv_on_remove_dtn_from_walled']
+            config=self.tasks_config['improv_on_remove_dtn_from_walled'],
+            
         )
 
     @task
     def improv_speed_change(self) -> Task:
         return Task(
-            config=self.tasks_config['improv_speed_change']
+            config=self.tasks_config['improv_speed_change'],
+            
         )
 
     @task
     def optius_on_reset_speed(self) -> Task:
         return Task(
-            config=self.tasks_config['optius_on_reset_speed']
+            config=self.tasks_config['optius_on_reset_speed'],
+            
         )
 
     @task
     def optius_on_update_speed(self) -> Task:
         return Task(
-            config=self.tasks_config['optius_on_update_speed']
+            config=self.tasks_config['optius_on_update_speed'],
+            
         )
 
     @task
     def oss_fiber_speed_change(self) -> Task:
         return Task(
-            config=self.tasks_config['oss_fiber_speed_change']
+            config=self.tasks_config['oss_fiber_speed_change'],
+            
         )
 
     @task
     def oss_instantwifi_speed_change(self) -> Task:
         return Task(
-            config=self.tasks_config['oss_instantwifi_speed_change']
+            config=self.tasks_config['oss_instantwifi_speed_change'],
+            
         )
 
     @task
     def oss_optius_fiber_activation_new_customer(self) -> Task:
         return Task(
-            config=self.tasks_config['oss_optius_fiber_activation_new_customer']
+            config=self.tasks_config['oss_optius_fiber_activation_new_customer'],
+            
         )
 
     @task
     def oss_voice_activation_existing_customer(self) -> Task:
         return Task(
-            config=self.tasks_config['oss_voice_activation_existing_customer']
+            config=self.tasks_config['oss_voice_activation_existing_customer'],
+            
         )
 
     @task
-    def oss_voice_porting(self) -> Task:
+    def create_smartnid_disconnect_order_for_current_customer(self) -> Task:
         return Task(
-            config=self.tasks_config['oss_voice_porting']
+            config=self.tasks_config['create_smartnid_disconnect_order_for_current_customer'],
+            
         )
+        
+        
+    @task
+    def create_migration(self) -> Task:
+        return Task(
+            config=self.tasks_config['create_migration'],
+        )
+        
+    
+    @task
+    def migration_modem_replacement_case_creation(self) -> Task:
+        return Task(
+            config=self.tasks_config['migration_modem_replacement_case_creation'],
+        )
+        
+    @task
+    def waiting_on_customer_confirmation(self) -> Task:
+        return Task(
+            config=self.tasks_config['waiting_on_customer_confirmation'],
+        )
+        
+    @task
+    def oss_optius_work_order_sign_off(self) -> Task:
+        return Task(
+            config=self.tasks_config['waiting_on_customer_confirmation'],
+        )
+
+    @task
+    def migrate_oss_optius_work_order_sign_off(self) -> Task:
+        return Task(
+            config=self.tasks_config['waiting_on_customer_confirmation'],
+        )
+
+
 
     @crew
     def crew(self) -> Crew:
-        """Creates the SfWoAgent crew"""
+        """Creates the SfWoAgent crew"""    
+        logging.info("successfully crew")
         return Crew(
             agents=self.agents,  # Automatically created by the @agent decorator
             tasks=self.tasks,    # Automatically created by the @task decorator
             verbose=2,
             manager_agent=self.orchestration_agent,
             process=Process.hierarchical
+            # output_log_file=True
         )

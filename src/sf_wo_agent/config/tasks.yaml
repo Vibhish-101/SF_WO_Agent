@@ -3,237 +3,140 @@
       Maintain the current data rate and activation details for the customer's account and order. Ensure that this task is only executed if the account and order are up-to-date with the latest service information.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - order_lookup_agent
-      - 
+        
 
   create_account_contact_updates:
     description: >
       Process necessary updates to account and contact information based on recent changes or new information received. Ensure that all related tasks for account and contact updates are completed before this task proceeds.
     expected_output: >
       The output will be a JSON object structured to include the order number and related account details. The OrchestrationItems list will include entries with fields such as OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - order_lookup_agent
-      - monitoring_agent
-      - resolution_agent
-      - dependency_mapping_agent
-      - notification_agent
 
-update_wo_and_sa:
-    description: >
-      Create Work Order and Service Appointment records. This task can proceed independently as it does not rely on other tasks.
-    expected_output: >
-      The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - order_lookup_agent
-      - monitoring_agent
-      - resolution_agent
-      - dependency_mapping_agent
-      - notification_agent
+
+  update_wo_and_sa:
+      description: >
+        Create Work Order and Service Appointment records. This task can proceed independently as it does not rely on other tasks.
+      expected_output: >
+        The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
+        
 
   update_wo_facilities:
     description: >
       Fetch facilities data needed for technician provisioning. This task can proceed independently as it does not rely on other tasks.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - order_lookup_agent
-      - monitoring_agent
-      - resolution_agent
-      - dependency_mapping_agent
-      - notification_agent
+    
 
   get_and_activate_dtn:
     description: >
       Retrieve and activate the DTN. Ensure that prerequisite setup tasks related to DTN are completed before proceeding. This task will not execute if DTN setup is incomplete.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - order_validation
+  
 
   get_health_certificate:
     description: >
       Check the health of the internet speed and create a health certificate record. This task is independent and can proceed regardless of the state of other tasks.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - order_validation
-      - monitoring_agent
-      - resolution_agent
-      - dependency_mapping_agent
-      - notification_agent
+   
 
   acs_on_reset_gateway:
     description: >
       Make an API call to ACS system to reset the Active modem device. This task depends on the completion of device setup tasks. It will not execute if device setup is incomplete.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-      - monitoring_agent
-      - resolution_agent
-      - dependency_mapping_agent
-      - notification_agent
+   
 
   acs_smartnid_reset_gateway:
     description: >
       Reset the smartnid device modem. Ensure that device setup tasks are completed before proceeding. This task will not execute if device setup is incomplete.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-      - monitoring_agent
-      - resolution_agent
-      - dependency_mapping_agent
-      - notification_agent
+   
 
   assia_on_update_speed:
     description: >
       Make an API call to IMPROV system to update the speed. This task requires all related speed change requests to be completed before it can proceed.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-      - monitoring_agent
-      - resolution_agent
-      - dependency_mapping_agent
-      - notification_agent
+   
 
   assia_speed_update:
     description: >
       Upgrade or downgrade the internet speed. Ensure all related speed management tasks are completed before proceeding.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-      - monitoring_agent
-      - resolution_agent
-      - dependency_mapping_agent
-      - notification_agent
+   
 
   create_zuora_subscription:
     description: >
       Create a subscription in Zuora. This task requires completion of all setup tasks for subscription creation.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-      - monitoring_agent
-      - resolution_agent
-      - dependency_mapping_agent
-      - notification_agent
-
+   
   fiber_provisioning_modified:
     description: >
       Provision fiber service for a migrated customer. Ensure necessary setup and provisioning tasks are completed before proceeding.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
+   
   hsi_fiber_assetize:
     description: >
       Create assets using Assetize Auto task. This task can proceed independently as it does not rely on other tasks.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - inventory_management_agent
-
-  hsi_fiber_installation:
-    description: >
-      Wait for the completion of the work order. This task will not proceed if the work order creation is incomplete.
-    expected_output: >
-      The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - installation_scheduling_agent
+   
 
   improv_on_remove_dtn_from_walled:
     description: >
       Remove DTN from walled garden for ON customer. Ensure related DTN management tasks are completed before proceeding.
     expected_output: >
       DThe output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
+    
   improv_speed_change:
     description: >
       Make an API call to IMPROV system to change speed. This task requires all related speed management tasks to be completed before it can proceed.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
+    
   optius_on_reset_speed:
     description: >
       Callout to reset speed for Fiber customer. Ensure related setup tasks are completed before this task can proceed.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
+  
   optius_on_update_speed:
     description: >
       Callout to update speed for customer order product. This task depends on the completion of related speed update tasks.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
+    
   oss_fiber_speed_change:
     description: >
       Callout to reset speed for Fiber customer. This task requires completion of related setup tasks.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
+    
 
   oss_instantwifi_speed_change:
     description: >
       Callout to reset speed for Instant Wifi customer. Ensure all related tasks are completed before proceeding.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
+   
   oss_optius_fiber_activation_new_customer:
     description: >
       Activate fiber internet service for a new customer. This task depends on the completion of all prerequisite tasks for fiber activation.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
+   
 
   oss_voice_activation_existing_customer:
     description: >
       Activate voice service for an existing fiber customer. Ensure all related voice service activation tasks are completed before proceeding.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
-  oss_voice_porting:
-    description: >
-      Set voice porting for a customer. This task depends on the completion of related porting tasks.
-    expected_output: >
-      The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
-  oss_voice_set_port_request_date:
-    description: >
-      Set port request date for a customer. Ensure related port request tasks are completed before proceeding.
-    expected_output: >
-      The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
-  plume_registration:
-    description: >
-      Register the customer in Plume. This task can proceed independently as it does not rely on other tasks.
-    expected_output: >
-      The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
+   
 
   update_improv_for_smartnid:
     description: >
@@ -259,84 +162,43 @@ update_wo_and_sa:
     agent:
       - service_provisioning_agent
 
-  walled_garden_api_callout:
-    description: >
-      Callout for putting an account into the walled garden (pause scenario). This task depends on completion of related setup tasks.
-    expected_output: >
-      The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
-  walled_garden_resume_api_callout:
-    description: >
-      Callout for removing an account from the walled garden (resume scenario). Ensure related resume tasks are completed before proceeding.
-    expected_output: >
-      The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
-  zuora_subscription_activation:
-    description: >
-      Activate a subscription in Zuora. Ensure all related setup tasks for Zuora activation are completed before this task proceeds.
-    expected_output: >
-      The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
-  zuora_update_product_rate_charge:
-    description: >
-      Amend subscription to add or remove products for upgrade/downgrade. Ensure all related tasks for subscription rate changes are completed before proceeding.
-    expected_output: >
-      The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
   create_smartnid_disconnect_order_for_current_customer:
     description: >
       Create a disconnect order for SmartNID for a current customer. This task can proceed independently as it does not rely on other tasks.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
+    
 
   create_migration:
     description: >
       Create a migration conflict case. This task can proceed independently as it does not rely on other tasks.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
+   
 
   migration_modem_replacement_case_creation:
     description: >
       Create a case for modem replacement shipment for migrated customer orders. This task can proceed independently as it does not rely on other tasks.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
+    
   waiting_on_customer_confirmation:
     description: >
       Send an email to the customer when there is a change in the service appointment. Ensure all related tasks are completed before sending the confirmation.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - notification_agent
-
+    
   oss_optius_work_order_sign_off:
     description: >
       Sign off the work order upon completion. Ensure all related tasks are completed before signing off.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate..
-    agent:
-      - service_provisioning_agent
+   
 
   migrate_oss_optius_work_order_sign_off:
     description: >
       Sign off the work order from a technician when the order is completed. Ensure all related tasks are completed before technician sign-off.
     expected_output: >
       The output will be a JSON object containing the order number and account details, such as Id, AccountName, AccountStatus, and OrderStatus. Additionally, an OrchestrationItems list will be included where each item captures details like OrchestrationItemType, OrchestrationPlanId, Name, DependsOnItemId, OrchestrationItemName, OrchestrationItemState, and CreatedDate.
-    agent:
-      - service_provisioning_agent
-
+    
  

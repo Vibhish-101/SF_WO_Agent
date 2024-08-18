@@ -6,12 +6,10 @@ import websocket
 from dotenv import load_dotenv
 from crewai_tools import tool
 
-# Load environment variables from the .env file
 load_dotenv()
 
 class APITool:
     def __init__(self):
-        # Get the API URL, Port, and Host from environment variables
         self.host = os.getenv("HOST")
         self.port = os.getenv("PORT")
         self.url = f"ws://{self.host}:{self.port}/ws/orchestration-items/"
@@ -44,7 +42,6 @@ class APITool:
             result = ws.recv()
             ws.close()
 
-            # Return the fetched orchestration items
             return json.loads(result)
         
         except websocket.WebSocketException as e:
@@ -59,3 +56,13 @@ instance = APITool()
 def fetch_orch_items(customer_order: str) -> str:
     """Fetch orchestration items for a specific customer."""
     return instance.fetch_orchestration_items(customer_order)
+
+
+# Testing the APITool class
+if __name__ == "__main__":
+    
+    test_order = "A00706991"
+
+    # Fetch orchestration items using the instance directly
+    response = instance.fetch_orchestration_items(test_order)
+    print(f"Orchestration items for order {test_order}: {response}")

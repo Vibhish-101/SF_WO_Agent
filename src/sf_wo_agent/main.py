@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 import sys
-from sf_wo_agent.crew import SfWoAgentCrew
+from crew import SfWoAgentCrew
+import logging
 
-# This main file is intended to be a way for your to run your
-# crew locally, so refrain from adding necessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+logging.basicConfig(level=logging.INFO)
+
+logging.info("successfully started")
 
 def run():
     """
@@ -15,6 +15,7 @@ def run():
         'customer_order': 'A00706991'
     }
     SfWoAgentCrew().crew().kickoff(inputs=inputs)
+    logging.info("successfully run")
 
 
 def train():
@@ -29,6 +30,8 @@ def train():
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
+    
+    logging.info("successfullt train")
 
 def replay():
     """
@@ -39,3 +42,8 @@ def replay():
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
+    
+        logging.info("successfullt replay")
+        
+
+run()
