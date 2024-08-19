@@ -135,15 +135,20 @@ async def websocket_endpoint(websocket: WebSocket):
                 # Authenticate and fetch Orchestration Items
                 sf = authenticate_salesforce()
                 orchestration_items = fetch_orch_items(sf, order.customer_order)
-                normalized_items = normalize_records(orchestration_items)                
+                normalized_items = normalize_records(orchestration_items) 
+                
+                #Limiting the response 
+                limited_items = normalized_items[:10] 
+                
+                              
                 # Send the Orchestration Items back to the Client
-                await websocket.send_json({"orchestration_items": normalized_items})
+                await websocket.send_json({"orchestration_items": limited_items})
             except Exception as e:
                 logging.error(f"Error fetching orchestration items: {str(e)}")
                 await websocket.send_json({"error": f"Failed to fetch orchestration items: {str(e)}"})
 
             # Sleep for delay
-            await asyncio.sleep(10)
+            await asyncio.sleep(3)
     except WebSocketDisconnect:
         logging.info("Client disconnected")
     except Exception as e:

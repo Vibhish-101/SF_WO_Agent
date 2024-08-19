@@ -41,11 +41,17 @@ class APITool:
             # Receive orchestration items from the server
             result = ws.recv()
             ws.close()
+            
+            #parse and proper JSON response
+            parsed_result = json.loads(result)
+            formatted_result = json.dumps(parsed_result, indent = 4)
 
-            return json.loads(result)
+            return formatted_result
         
         except websocket.WebSocketException as e:
             return f"WebSocket communication error: {str(e)}"
+        except json.JSONDecodeError as e:
+            return f"Error decoding JSON  response: {str(e)}"
         except Exception as e:
             return f"An unexpected error occurred: {str(e)}"
 

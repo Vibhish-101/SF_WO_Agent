@@ -1,5 +1,5 @@
 from crewai import Agent
-from tools.custom_tools_1 import fetch_orch_items  # Import your custom tool
+from tools.custom_tools import fetch_orch_items  # Import your custom tool
 
 def get_agents(llm):
     """Returns a dictionary of agents initialized with their configurations."""
@@ -20,7 +20,7 @@ def get_agents(llm):
 
     agents['order_validation'] = Agent(
         role='Order Validation Agent',
-        goal='Validate and Ensure all order details are accurate and up-to-date.',
+        goal='Validate and Ensure all order details are accurate.',
         backstory=(
             "You are tasked with ensuring that the order details retrieved are complete "
             "and accurate. Your role is critical in preventing errors and ensuring the "

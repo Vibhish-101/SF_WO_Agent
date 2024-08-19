@@ -1,0 +1,294 @@
+agent=Telecom Orchestration Manager2024-08-19 19:44:55: task=Maintain the current data rate and activation details for the customer's account and order. Ensure that this task is only executed if the account and order are up-to-date with the latest service information.2024-08-19 19:44:55: status=started
+agent=Telecom Orchestration Manager2024-08-19 19:46:24: task=```json
+{
+  "OrderNumber": "A00706991",
+  "Account": {
+    "Id": "CUST-12345",
+    "AccountName": "John Doe",
+    "AccountStatus": "Active", 
+    "OrderStatus": "Processing" 
+  },
+  "OrchestrationItems": [
+    {
+      "OrchestrationItemType": "Order",
+      "OrchestrationPlanId": "A00706991",
+      "Name": "Order Fulfillment",
+      "DependsOnItemId": null, 
+      "OrchestrationItemName": "Order Processing",
+      "OrchestrationItemState": "InProgress",
+      "CreatedDate": "2023-11-15T10:00:00Z"
+    },
+    {
+      "OrchestrationItemType": "Activation",
+      "OrchestrationPlanId": "A00706991",
+      "Name": "Service Activation",
+      "DependsOnItemId": "A00706991", 
+      "OrchestrationItemName": "Activate 1GB Data Plan",
+      "OrchestrationItemState": "Pending",
+      "CreatedDate": "2023-11-15T12:00:00Z"
+    }
+  ]
+}
+```2024-08-19 19:46:24: status=completed
+agent=Telecom Orchestration Manager2024-08-19 19:46:25: task=Process necessary updates to account and contact information based on recent changes or new information received. Ensure that all related tasks for account and contact updates are completed before this task proceeds.2024-08-19 19:46:25: status=started
+agent=Telecom Orchestration Manager2024-08-19 19:47:16: task=```json
+{
+  "OrderNumber": "A00706991",
+  "Account": {
+    "Id": "CUST-12345",
+    "AccountName": "John Doe",
+    "AccountStatus": "Active",
+    "OrderStatus": "Processing"
+  },
+  "OrchestrationItems": [
+    {
+      "OrchestrationItemType": "Order",
+      "OrchestrationPlanId": "A00706991",
+      "Name": "Order Fulfillment",
+      "DependsOnItemId": null,
+      "OrchestrationItemName": "Order Processing",
+      "OrchestrationItemState": "InProgress",
+      "CreatedDate": "2023-11-15T10:00:00Z"
+    },
+    {
+      "OrchestrationItemType": "Activation",
+      "OrchestrationPlanId": "A00706991",
+      "Name": "Service Activation",
+      "DependsOnItemId": "A00706991",
+      "OrchestrationItemName": "Activate 1GB Data Plan",
+      "OrchestrationItemState": "Pending",
+      "CreatedDate": "2023-11-15T12:00:00Z"
+    }
+  ]
+}
+```2024-08-19 19:47:16: status=completed
+agent=Telecom Orchestration Manager2024-08-19 19:47:17: task=Create Work Order and Service Appointment records. This task can proceed independently as it does not rely on other tasks.2024-08-19 19:47:17: status=started
+agent=Telecom Orchestration Manager2024-08-19 19:48:24: task=```json
+{
+  "OrderNumber": "A00706991",
+  "Account": {
+    "Id": "CUST-12345",
+    "AccountName": "John Doe",
+    "AccountStatus": "Active",
+    "OrderStatus": "Processing"
+  },
+  "OrchestrationItems": [
+    {
+      "OrchestrationItemType": "Order",
+      "OrchestrationPlanId": "A00706991",
+      "Name": "Order Fulfillment",
+      "DependsOnItemId": null,
+      "OrchestrationItemName": "Order Processing",
+      "OrchestrationItemState": "InProgress",
+      "CreatedDate": "2023-11-15T10:00:00Z"
+    },
+    {
+      "OrchestrationItemType": "Activation",
+      "OrchestrationPlanId": "A00706991",
+      "Name": "Service Activation",
+      "DependsOnItemId": "A00706991",
+      "OrchestrationItemName": "Activate 1GB Data Plan",
+      "OrchestrationItemState": "Pending",
+      "CreatedDate": "2023-11-15T12:00:00Z"
+    },
+    {
+      "OrchestrationItemType": "WorkOrder",
+      "OrchestrationPlanId": "A00706991",
+      "Name": "Work Order Fulfillment",
+      "DependsOnItemId": "A00706991",
+      "OrchestrationItemName": "Order Fulfillment",
+      "OrchestrationItemState": "Open",
+      "CreatedDate": "2023-11-16T10:00:00Z"
+    },
+    {
+      "OrchestrationItemType": "ServiceAppointment",
+      "OrchestrationPlanId": "A00706991",
+      "Name": "Service Appointment",
+      "DependsOnItemId": "WO-1111111",
+      "OrchestrationItemName": "Activation",
+      "OrchestrationItemState": "Scheduled",
+      "CreatedDate": "2023-11-17T10:00:00Z"
+    }
+  ],
+  "WorkOrder": {
+    "WorkOrderId": "WO-1111111", 
+    "OrderNumber": "A00706991",
+    "AccountId": "CUST-12345",
+    "WorkOrderStatus": "Open",
+    "WorkOrderType": "Order Fulfillment",
+    "CreatedDate": "2023-11-16T10:00:00Z" 
+  },
+  "ServiceAppointment": {
+    "ServiceAppointmentId": "SA-2222222", 
+    "WorkOrderId": "WO-1111111", 
+    "OrderNumber": "A00706991",
+    "AccountId": "CUST-12345",
+    "ServiceAppointmentStatus": "Scheduled",
+    "ServiceAppointmentType": "Activation",
+    "ScheduledStartDate": "2023-11-17T10:00:00Z", 
+    "ScheduledEndDate": "2023-11-17T11:00:00Z" 
+  }
+}
+```2024-08-19 19:48:24: status=completed
+agent=Telecom Orchestration Manager2024-08-19 19:48:24: task=Fetch facilities data needed for technician provisioning. This task can proceed independently as it does not rely on other tasks.2024-08-19 19:48:24: status=started
+agent=Telecom Orchestration Manager2024-08-19 19:54:58: task=Agent stopped due to iteration limit or time limit.2024-08-19 19:54:58: status=completed
+agent=Telecom Orchestration Manager2024-08-19 19:54:58: task=Retrieve and activate the DTN. Ensure that prerequisite setup tasks related to DTN are completed before proceeding. This task will not execute if DTN setup is incomplete.2024-08-19 19:54:58: status=started
+agent=Telecom Orchestration Manager2024-08-19 19:56:56: task=I am still waiting for the user to provide the order number.  Once I have this I can proceed.2024-08-19 19:56:56: status=completed
+agent=Telecom Orchestration Manager2024-08-19 19:56:56: task=Check the health of the internet speed and create a health certificate record. This task is independent and can proceed regardless of the state of other tasks.2024-08-19 19:56:56: status=started
+agent=Telecom Orchestration Manager2024-08-19 19:59:41: task=Agent stopped due to iteration limit or time limit.2024-08-19 19:59:41: status=completed
+agent=Telecom Orchestration Manager2024-08-19 19:59:41: task=Make an API call to ACS system to reset the Active modem device. This task depends on the completion of device setup tasks. It will not execute if device setup is incomplete.2024-08-19 19:59:41: status=started
+agent=Telecom Orchestration Manager2024-08-19 20:04:02: task=```json
+{
+    "orchestration_items": [
+        {
+            "Id": "a4lDo000003ay0iIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "Callout",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "Create Account & Contact Updates --> Device Selection callout to GCP",
+            "OrchestrationItemName": "Device Selection callout to GCP",
+            "OrchestrationItemState": "Completed",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        },
+        {
+            "Id": "a4lDo000003ay0jIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "Callout",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "HSI Fiber Installation Completed > Place HSI Service in EULA WG",
+            "OrchestrationItemName": "Place HSI Service in EULA WG",
+            "OrchestrationItemState": "Skipped",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        },
+        {
+            "Id": "a4lDo000003ay0kIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "Callout",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "SOM Completed --> Place HSI Service in EULA WG",
+            "OrchestrationItemName": "Place HSI Service in EULA WG",
+            "OrchestrationItemState": "Skipped",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        },
+        {
+            "Id": "a4lDo000003ay0lIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "Callout",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "Create EULA WG Case --> Send EULA WG Reminder Comm",
+            "OrchestrationItemName": "Send EULA WG Reminder Comm",
+            "OrchestrationItemState": "Skipped",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        },
+        {
+            "Id": "a4lDo000003ay0mIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "AutoTask",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "Place HSI Service in EULA WG --> Create EULA WG Case",
+            "OrchestrationItemName": "Create EULA WG Case",
+            "OrchestrationItemState": "Skipped",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        },
+        {
+            "Id": "a4lDo000003ay0nIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "Callout",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "HSI Fiber Order Started --> Send II New Order Conf Email",
+            "OrchestrationItemName": "Send II New Order Conf Email",
+            "OrchestrationItemState": "Skipped",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        },
+        {
+            "Id": "a4lDo000003ay0oIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "Callout",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "WO and SA Updates - > Send Order Confirmation Email",
+            "OrchestrationItemName": "Send Order Confirmation Email",
+            "OrchestrationItemState": "Completed",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        },
+        {
+            "Id": "a4lDo000003ay0pIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "Callout",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "HSI Fiber Assetize -->BroadBandlabelid_CTLON",
+            "OrchestrationItemName": "BroadBandlabelid_CTLON/SmartNidEnabled",
+            "OrchestrationItemState": "Skipped",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        },
+        {
+            "Id": "a4lDo000003ay0qIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "AutoTask",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "HSI Fiber Order Started --> Send Change Order Confirmation Email",
+            "OrchestrationItemName": "Send Change Order Confirmation Email",
+            "OrchestrationItemState": "Skipped",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        },
+        {
+            "Id": "a4lDo000003ay0rIAA",
+            "AccountName": "Ou Chen",
+            "AccountStatus": "Active",
+            "OrderNumber": "A00706991",
+            "OrderStatus": "Activated",
+            "SmartNID": "Enabled",
+            "OrchestrationItemType": "AutoTask",
+            "OrchestrationPlanId": "a4pDo0000027LoSIAU",
+            "Dependency": "SOM Order Status Update --> HSI Fiber Assetize",
+            "OrchestrationItemName": "HSI Fiber Assetize",
+            "OrchestrationItemState": "Completed",
+            "CreatedDate": "2024-04-02T16:33:42.000+0000"
+        }
+    ]
+}
+```2024-08-19 20:04:02: status=completed
+agent=Telecom Orchestration Manager2024-08-19 20:04:02: task=Reset the smartnid device modem. Ensure that device setup tasks are completed before proceeding. This task will not execute if device setup is incomplete.2024-08-19 20:04:02: status=started
+agent=Telecom Orchestration Manager2024-08-19 20:10:03: task={"OrderNumber": "A00706991", "AccountName": "Ou Chen", "AccountStatus": "Active", "OrderStatus": "Activated", "OrchestrationItems": [{"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Device Selection callout to GCP", "DependsOnItemId": "Create Account & Contact Updates", "OrchestrationItemName": "Device Selection callout to GCP", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Place HSI Service in EULA WG", "DependsOnItemId": "HSI Fiber Installation Completed", "OrchestrationItemName": "Place HSI Service in EULA WG", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Place HSI Service in EULA WG", "DependsOnItemId": "SOM Completed", "OrchestrationItemName": "Place HSI Service in EULA WG", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send EULA WG Reminder Comm", "DependsOnItemId": "Create EULA WG Case", "OrchestrationItemName": "Send EULA WG Reminder Comm", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "AutoTask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Create EULA WG Case", "DependsOnItemId": "Place HSI Service in EULA WG", "OrchestrationItemName": "Create EULA WG Case", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send II New Order Conf Email", "DependsOnItemId": "HSI Fiber Order Started", "OrchestrationItemName": "Send II New Order Conf Email", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send Order Confirmation Email", "DependsOnItemId": "WO and SA Updates", "OrchestrationItemName": "Send Order Confirmation Email", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "BroadBandlabelid_CTLON/SmartNidEnabled", "DependsOnItemId": "HSI Fiber Assetize", "OrchestrationItemName": "BroadBandlabelid_CTLON/SmartNidEnabled", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "AutoTask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send Change Order Confirmation Email", "DependsOnItemId": "HSI Fiber Order Started", "OrchestrationItemName": "Send Change Order Confirmation Email", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "AutoTask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "HSI Fiber Assetize", "DependsOnItemId": "SOM Order Status Update", "OrchestrationItemName": "HSI Fiber Assetize", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-02T16:33:42.000+0000"}]}2024-08-19 20:10:03: status=completed
+agent=Telecom Orchestration Manager2024-08-19 20:10:03: task=Make an API call to IMPROV system to update the speed. This task requires all related speed change requests to be completed before it can proceed.2024-08-19 20:10:03: status=started
+agent=Telecom Orchestration Manager2024-08-19 20:11:23: task={"OrderNumber": "A00706991", "AccountName": "Ou Chen", "AccountStatus": "Active", "OrderStatus": "Activated", "OrchestrationItems": [{"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Device Selection callout to GCP", "DependsOnItemId": "Create Account & Contact Updates", "OrchestrationItemName": "Device Selection callout to GCP", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Place HSI Service in EULA WG", "DependsOnItemId": "HSI Fiber Installation Completed", "OrchestrationItemName": "Place HSI Service in EULA WG", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Place HSI Service in EULA WG", "DependsOnItemId": "SOM Completed", "OrchestrationItemName": "Place HSI Service in EULA WG", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send EULA WG Reminder Comm", "DependsOnItemId": "Create EULA WG Case", "OrchestrationItemName": "Send EULA WG Reminder Comm", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "AutoTask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Create EULA WG Case", "DependsOnItemId": "Place HSI Service in EULA WG", "OrchestrationItemName": "Create EULA WG Case", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send II New Order Conf Email", "DependsOnItemId": "HSI Fiber Order Started", "OrchestrationItemName": "Send II New Order Conf Email", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send Order Confirmation Email", "DependsOnItemId": "WO and SA Updates", "OrchestrationItemName": "Send Order Confirmation Email", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "BroadBandlabelid_CTLON/SmartNidEnabled", "DependsOnItemId": "HSI Fiber Assetize", "OrchestrationItemName": "BroadBandlabelid_CTLON/SmartNidEnabled", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "AutoTask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send Change Order Confirmation Email", "DependsOnItemId": "HSI Fiber Order Started", "OrchestrationItemName": "Send Change Order Confirmation Email", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "AutoTask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "HSI Fiber Assetize", "DependsOnItemId": "SOM Order Status Update", "OrchestrationItemName": "HSI Fiber Assetize", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "APITask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Make API call to IMPROV system to update the speed", "DependsOnItemId": "HSI Fiber Assetize", "OrchestrationItemName": "Update Speed in IMPROV", "OrchestrationItemState": "Pending", "CreatedDate": "2024-04-03T10:15:12.000+0000"}]}2024-08-19 20:11:23: status=completed
+agent=Telecom Orchestration Manager2024-08-19 20:11:23: task=Upgrade or downgrade the internet speed. Ensure all related speed management tasks are completed before proceeding.2024-08-19 20:11:23: status=started
+agent=Telecom Orchestration Manager2024-08-19 20:16:43: task=```json
+{"OrderNumber": "A00706991", "AccountName": "Ou Chen", "AccountStatus": "Active", "OrderStatus": "Activated", "OrchestrationItems": [{"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Device Selection callout to GCP", "DependsOnItemId": "Create Account & Contact Updates", "OrchestrationItemName": "Device Selection callout to GCP", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Place HSI Service in EULA WG", "DependsOnItemId": "HSI Fiber Installation Completed", "OrchestrationItemName": "Place HSI Service in EULA WG", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Place HSI Service in EULA WG", "DependsOnItemId": "SOM Completed", "OrchestrationItemName": "Place HSI Service in EULA WG", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send EULA WG Reminder Comm", "DependsOnItemId": "Create EULA WG Case", "OrchestrationItemName": "Send EULA WG Reminder Comm", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "AutoTask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Create EULA WG Case", "DependsOnItemId": "Place HSI Service in EULA WG", "OrchestrationItemName": "Create EULA WG Case", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send II New Order Conf Email", "DependsOnItemId": "HSI Fiber Order Started", "OrchestrationItemName": "Send II New Order Conf Email", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send Order Confirmation Email", "DependsOnItemId": "WO and SA Updates", "OrchestrationItemName": "Send Order Confirmation Email", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "Callout", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "BroadBandlabelid_CTLON/SmartNidEnabled", "DependsOnItemId": "HSI Fiber Assetize", "OrchestrationItemName": "BroadBandlabelid_CTLON/SmartNidEnabled", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "AutoTask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Send Change Order Confirmation Email", "DependsOnItemId": "HSI Fiber Order Started", "OrchestrationItemName": "Send Change Order Confirmation Email", "OrchestrationItemState": "Skipped", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "AutoTask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "HSI Fiber Assetize", "DependsOnItemId": "SOM Order Status Update", "OrchestrationItemName": "HSI Fiber Assetize", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-02T16:33:42.000+0000"}, {"OrchestrationItemType": "APITask", "OrchestrationPlanId": "a4pDo0000027LoSIAU", "Name": "Make API call to IMPROV system to update the speed", "DependsOnItemId": "HSI Fiber Assetize", "OrchestrationItemName": "Update Speed in IMPROV", "OrchestrationItemState": "Completed", "CreatedDate": "2024-04-03T10:15:12.000+0000"}]}
+```2024-08-19 20:16:43: status=completed
+agent=Telecom Orchestration Manager2024-08-19 20:16:43: task=Create a subscription in Zuora. This task requires completion of all setup tasks for subscription creation.2024-08-19 20:16:43: status=started
