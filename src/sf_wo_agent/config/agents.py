@@ -13,7 +13,7 @@ def get_agents(llm):
             "using the provided order number. You work efficiently to ensure that all "
             "necessary information is accurately fetched for further processing."
         ),
-        verbose=True,
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -26,8 +26,8 @@ def get_agents(llm):
             "and accurate. Your role is critical in preventing errors and ensuring the "
             "smooth progression of the order processing."
         ),
-        tools=[fetch_orch_items],  # Use the custom tool here
-        verbose=True,
+        tools=[fetch_orch_items],  
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -40,8 +40,8 @@ def get_agents(llm):
             "customer has ordered. Your efficiency and accuracy ensure that customers "
             "receive their services without delay."
         ),
-        tools=[fetch_orch_items],  # Use the custom tool here
-        verbose=True,
+        tools=[fetch_orch_items],  
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -54,8 +54,8 @@ def get_agents(llm):
             "allocated for service provisioning. Your role is crucial in preventing delays "
             "due to resource shortages."
         ),
-        tools=[fetch_orch_items],  # Use the custom tool here
-        verbose=True,
+        tools=[fetch_orch_items],  
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -67,8 +67,8 @@ def get_agents(llm):
             "You coordinate with customers to schedule installation appointments, "
             "ensuring that all logistics are handled smoothly and efficiently."
         ),
-        tools=[fetch_orch_items],  # Use the custom tool here
-        verbose=True,
+        tools=[fetch_orch_items],  
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -81,8 +81,8 @@ def get_agents(llm):
             "ensuring they have all the necessary information and resources for "
             "successful installation."
         ),
-        tools=[fetch_orch_items],  # Use the custom tool here
-        verbose=True,
+        tools=[fetch_orch_items],  
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -94,8 +94,8 @@ def get_agents(llm):
             "You are responsible for keeping the customer and internal systems updated "
             "with the current status of the order at each step and accurate."
         ),
-        tools=[fetch_orch_items],  # Use the custom tool here
-        verbose=True,
+        tools=[fetch_orch_items],  
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -113,7 +113,7 @@ def get_agents(llm):
             "or anomalies in the service orchestration process, ensuring that issues are "
             "addressed before they impact the overall flow."
         ),
-        verbose=True,
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -130,7 +130,7 @@ def get_agents(llm):
             "Known for quickly diagnosing complex issues and proposing effective solutions, "
             "leveraging AI, historical data, and industry best practices."
         ),
-        verbose=True,
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -147,7 +147,7 @@ def get_agents(llm):
             "Responsible for ensuring that each task is executed in the right sequence, avoiding delays "
             "and errors caused by unmet dependencies."
         ),
-        verbose=True,
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
@@ -163,7 +163,7 @@ def get_agents(llm):
             "all stakeholders are kept in the loop. Known for delivering clear, actionable updates that help "
             "prevent delays and ensure smooth service delivery."
         ),
-        verbose=True,
+        verbose=False,
         allow_delegation=True,
         llm=llm
     )
